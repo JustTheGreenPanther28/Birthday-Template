@@ -1,0 +1,293 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    caret-color:orange;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: flex-start;
+    align-items:center;
+    min-height: 100vh;
+    background-image: url("image/background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.poster {
+    margin-left : 100px;
+    margin-right: 100px;
+    position: relative;
+    width: 430px;
+    height: 650px;
+
+    overflow: hidden;
+
+    border: 5px solid #ff6b81;
+    
+    border-radius: 18px;
+
+    background-image: url("image/birthdayImg.png");
+    background-size: cover;
+    background-position: center;
+
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .25);
+
+
+
+}
+
+/* ===================== */
+/* TOP DECORATION */
+/* ===================== */
+
+.top-decoration {
+
+    position: absolute;
+    width: 100%;
+    height: 150px;
+    top: 0;
+    left: 0;
+
+}
+
+
+/* =================== */
+/* PROFILE */
+/* =================== */
+
+#profile {
+
+    position: absolute;
+
+    top: 155px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 200px;
+    height: 200px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    background: white;
+
+    padding: 8px;
+
+    border: 6px solid gold;
+
+    box-shadow:
+
+        0 10px 30px rgba(0, 0, 0, .25);
+
+}
+
+#profile img {
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    object-fit:contain;
+
+    transform: scale(1.1);
+
+}
+
+
+/* ==================== */
+/* CONTENT */
+/* ==================== */
+
+.content {
+
+    position: absolute;
+
+    bottom: 70px;
+
+    width: 100%;
+
+    text-align: center;
+
+}
+
+.content h1 {
+
+    font-size: 42px;
+
+    color: rgb(147, 13, 13);
+
+    font-family: cursive;
+
+    text-shadow:
+
+        2px 2px white,
+        0 4px 8px rgba(0, 0, 0, .2);
+
+}
+
+.content h2 {
+
+    margin-top: 8px;
+    margin-bottom: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color:  rgb(13, 42, 147);
+
+    letter-spacing: 2px;
+
+    font-size: 20px;
+
+}
+
+.content p {
+
+    margin-top: 30px;
+
+    color: #555;
+
+    font-weight: bo;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    font-size: 13px;
+
+    line-height: 22px;
+
+}
+.buttons{
+    position: relative;
+    width: 180px;
+    height: 180px;
+    left :500px;
+}
+
+.buttons button{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+
+    border: none;
+    border-radius: 50%;
+    background: rgb(69,147,13);
+    color:bisque;
+
+    font-size: 36px;
+    cursor: pointer;
+}
+
+.buttons button:hover{
+    text-shadow: 3px 2px black;
+    box-shadow: 2px 3px black;
+    background: rgba(69, 147, 13, 0.527);
+
+}
+
+/* Up */
+#top{
+    top: 0;
+    left: 55px;
+}
+
+/* Down */
+#bottom{
+    bottom: 0;
+    left: 55px;
+}
+
+/* Left */
+#left{
+    top: 55px;
+    left: 0;
+}
+
+/* Right */
+#right{
+    top: 55px;
+    right: 0;
+}
+.upload{
+    position: absolute;
+    top : 20px;
+    right : 0px;
+
+}
+
+#title{
+    color:rgba(172, 11, 11, 0.752);
+    margin-top: 5px;
+    font-size: 15px;
+    font-family:cursive;
+    font-weight: 700;
+
+}
+
+.upload input{
+    display: inline-block;
+    cursor:pointer;
+    font-weight:bold;
+    font-size: 20px;
+}
+.magnification{
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    right:350px;
+    top:480px;
+}
+
+.magnification button{
+    background:none;
+    border: none;
+    padding:10px;
+    cursor: pointer;
+}
+
+.download{
+    position: absolute;
+    right:50px;
+    bottom:20px;
+}
+
+.download button{
+    border: none;
+    background:none;
+    cursor: pointer;
+}
+
+#fitfill{
+    display: block;
+    position: absolute;
+    right:325px;
+    top:180px;
+}
+
+#fitfill button{
+    background:none;
+    border: none;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+#nameinput{
+    position: absolute;
+    top:20px;
+    border-radius: 20px;
+    width:300px;
+    padding: 15px;
+    border:3px solid pink;
+    font-family: cursive;
+}
+
+#nameinput:focus{
+    border:2px solid rgba(0, 255, 98, 0.712);
+    outline:none;
+}
