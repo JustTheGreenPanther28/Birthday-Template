@@ -59,9 +59,6 @@ zoomOut.addEventListener("click", () => {
     profile.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
 });
 
-
-
-
 const leftBtn = document.getElementById("left");
 const rightBtn = document.getElementById("right");
 const topBtn = document.getElementById("top");
@@ -104,3 +101,25 @@ downloadBtn.addEventListener("click", function () {
         link.click();
     });
 });
+
+let images = ["image/birthdayImg.png","image/birthdayImg1.png","image/birthdayImg2.png"];
+let i=0;
+
+const previous = document.getElementById("prev");
+const next = document.getElementById("next");
+
+previous.addEventListener("click",()=>{
+    if(i==-1){
+        i=images.length-1;
+    }
+    poster.style.backgroundImage = `url("${images[i]}")`;
+    i--;
+})
+
+next.addEventListener("click",()=>{
+    if(i==images.length){
+        i=0;
+    }
+    poster.style.backgroundImage = `url(${images[i]})`;
+    i++;
+})

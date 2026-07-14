@@ -57,6 +57,34 @@ body {
 
 }
 
+#move{
+    display: flex;
+    gap:455px;
+    position: absolute;
+    left : 45px;
+    top: 300px;
+}
+
+#move button{
+    font-size: 50px;
+    color:whitesmoke;
+    background-color: #174d94;
+    padding:5px;
+}
+
+#move button:hover{
+    color:wheat;
+    background-color: #0b2445;
+}
+
+#prev{
+    border-radius: 50% 10% 10% 50%;
+}
+
+#next{
+    border-radius: 10% 50% 50% 10%;
+}
+
 
 /* =================== */
 /* PROFILE */
