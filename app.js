@@ -1,5 +1,7 @@
 const imageInput = document.getElementById("imageInput");
 const profile = document.getElementById("profileImage");
+let images = ["image/birthdayImg.png","image/birthdayImg1.png","image/birthdayImg2.png","image/birthdayImg3.png","image/birthdayImg4.png","image/birthdayImg5.png"];
+
 let selected = false;
 let x = 0, y = 0;
 let scale = 1.1;
@@ -89,6 +91,25 @@ bottomBtn.addEventListener("click", () => {
     profile.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
 });
 
+let i = 0;
+
+const previous = document.getElementById("prev");
+const next = document.getElementById("next");
+
+previous.addEventListener("click", () => {
+    i = (i - 1 + images.length) % images.length;
+    updatePoster();
+});
+
+next.addEventListener("click", () => {
+    i = (i + 1) % images.length;
+    updatePoster();
+});
+
+function updatePoster() {
+    poster.style.backgroundImage = `url("${images[i]}")`;
+}
+
 
 const downloadBtn = document.getElementById("downloadBtn");
 const poster = document.querySelector(".poster");
@@ -101,25 +122,3 @@ downloadBtn.addEventListener("click", function () {
         link.click();
     });
 });
-
-let images = ["image/birthdayImg.png","image/birthdayImg1.png","image/birthdayImg2.png"];
-let i=0;
-
-const previous = document.getElementById("prev");
-const next = document.getElementById("next");
-
-previous.addEventListener("click",()=>{
-    if(i==-1){
-        i=images.length-1;
-    }
-    poster.style.backgroundImage = `url("${images[i]}")`;
-    i--;
-})
-
-next.addEventListener("click",()=>{
-    if(i==images.length){
-        i=0;
-    }
-    poster.style.backgroundImage = `url(${images[i]})`;
-    i++;
-})
