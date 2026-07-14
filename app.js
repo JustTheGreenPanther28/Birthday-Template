@@ -1,16 +1,22 @@
 const imageInput = document.getElementById("imageInput");
 const profile = document.getElementById("profileImage");
 let selected = false;
+let x = 0, y = 0;
+let scale = 1.1;
 
 imageInput.addEventListener("change", function () {
 
-    document.getElementById('title').textContent="";
+    scale = 1.1;
+    x = 0;
+    y = 0;
+
+    document.getElementById('title').textContent = "";
     const selectedFile = this.files[0];
 
     if (!selectedFile) {
         return;
     }
-    selected=true;
+    selected = true;
     const imageURL = URL.createObjectURL(selectedFile);
 
     profile.src = imageURL;
@@ -18,43 +24,39 @@ imageInput.addEventListener("change", function () {
 
 const nameInput = document.getElementById("nameinput");
 const name = document.getElementById("name");
-nameInput.addEventListener("input",()=>{
-     name.textContent=nameInput.value;
-     if(name.value==""){
-        name.textContent="______";
-     }
+nameInput.addEventListener("input", () => {
+    name.textContent = nameInput.value;
 });
 
 const fit = document.getElementById("fit");
 const fill = document.getElementById("fill");
 
-fit.addEventListener("click",()=>{
+fit.addEventListener("click", () => {
     profile.style.objectFit = "contain";
 });
 
-fill.addEventListener("click",()=>{
+fill.addEventListener("click", () => {
     profile.style.objectFit = "cover";
 })
 
 const zoomIn = document.getElementById("zoomIn");
 const zoomOut = document.getElementById("zoomOut");
-let scale=1;
 
-zoomIn.addEventListener("click",()=>{
-    if(!selected) return;
+zoomIn.addEventListener("click", () => {
+    if (!selected) return;
     scale += 0.1;
 
-    profile.style.transform=`scale(${scale})`;
+    profile.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
 });
 
-zoomOut.addEventListener("click",()=>{
-    if(!selected) return;
-    if(scale<=1.1){
+zoomOut.addEventListener("click", () => {
+    if (!selected) return;
+    if (scale <= 1.1) {
         return;
     }
     scale -= 0.1;
 
-    profile.style.transform=`scale(${scale})`;
+    profile.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
 });
 
 
@@ -65,3 +67,40 @@ const rightBtn = document.getElementById("right");
 const topBtn = document.getElementById("top");
 const bottomBtn = document.getElementById("bottom");
 
+leftBtn.addEventListener("click", () => {
+    if (!selected) return;
+    x += 5;
+    profile.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+})
+
+
+rightBtn.addEventListener("click", () => {
+    if (!selected) return;
+    x -= 5;
+    profile.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+});
+
+topBtn.addEventListener("click", () => {
+    if (!selected) return;
+    y += 5;
+    profile.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+});
+
+bottomBtn.addEventListener("click", () => {
+    if (!selected) return;
+    y -= 5;
+    profile.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+});
+
+
+const downloadBtn = document.getElementById("downloadBtn");
+const poster = document.querySelector(".poster");
+
+downloadBtn.addEventListener("click", function () {
+    domtoimage.toPng(poster).then(dataUrl => {
+        const link = document.createElement("a");
+        link.download = "Birthday_Poster.png";
+        link.href = dataUrl;
+        link.click();
+    });
+});

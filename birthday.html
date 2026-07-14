@@ -6,19 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Birthday Poster</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 
+<script src="https://cdn.jsdelivr.net/npm/dom-to-image-more/dist/dom-to-image-more.min.js"></script>
 <script defer src="app.js"></script>
+
 
 <body>
 
+    
     <div class="poster">
 
         <!-- Profile -->
         <div id="profile">
-
-            <img id="profileImage" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8qh6bj65apXQ5cNMTGlRUO4JgHCyR0zNNitLecRMgYkfrvbxMuD_rVvQ&s=10">
-
+            <div id="imageWrapper">
+                <img id="profileImage"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8qh6bj65apXQ5cNMTGlRUO4JgHCyR0zNNitLecRMgYkfrvbxMuD_rVvQ&s=10">
+            </div>
         </div>
 
         <!-- Text -->
@@ -37,7 +42,9 @@
     </div>
 
     <div class="download">
-        <button><img src="image/download.png" width="50"></button>
+        <div id="downloadBtn">
+            <button><img src="image/download.png" width="50"></button>
+        </div>
     </div>
 
     <div id="search">
@@ -56,7 +63,7 @@
         <button id="fill"><img src="image/fill.jpg" width="40"></button>
     </div>
 
-     <div class="upload">
+    <div class="upload">
         <input type="file" id="imageInput" accept="image/*">
         <div id="title">(UPLOAD IMAGE)</div>
     </div>
