@@ -35,11 +35,19 @@ const fill = document.getElementById("fill");
 
 fit.addEventListener("click", () => {
     profile.style.objectFit = "contain";
+    x = 0;
+    y = 0;
+    scale = 1.1;
+    profile.style.transform = `translate(0px, 0px) scale(1.1)`;
 });
 
 fill.addEventListener("click", () => {
     profile.style.objectFit = "cover";
-})
+    x = 0;
+    y = 0;
+    scale = 1.1;
+    profile.style.transform = `translate(0px, 0px) scale(1.1)`;
+});
 
 const zoomIn = document.getElementById("zoomIn");
 const zoomOut = document.getElementById("zoomOut");
@@ -66,30 +74,22 @@ const rightBtn = document.getElementById("right");
 const topBtn = document.getElementById("top");
 const bottomBtn = document.getElementById("bottom");
 
-leftBtn.addEventListener("click", () => {
-    if (!selected) return;
-    x += 5;
+function applyTransform() {
     profile.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
-})
+}
 
-
-rightBtn.addEventListener("click", () => {
+function pan(dx, dy) {
     if (!selected) return;
-    x -= 5;
-    profile.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
-});
+    x += dx;
+    y += dy;
+    applyTransform();
+}
 
-topBtn.addEventListener("click", () => {
-    if (!selected) return;
-    y += 5;
-    profile.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
-});
+leftBtn.onclick   = () => pan(5, 0);
+rightBtn.onclick  = () => pan(-5, 0);
+topBtn.onclick    = () => pan(0, 5);
+bottomBtn.onclick = () => pan(0, -5);
 
-bottomBtn.addEventListener("click", () => {
-    if (!selected) return;
-    y -= 5;
-    profile.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
-});
 
 let i = 0;
 
