@@ -11,6 +11,7 @@ imageInput.addEventListener("change", function () {
     scale = 1.1;
     x = 0;
     y = 0;
+    pan(x,y);
 
     document.getElementById('title').textContent = "";
     const selectedFile = this.files[0];
