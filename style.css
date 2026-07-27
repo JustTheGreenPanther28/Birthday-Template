@@ -33,6 +33,53 @@ body {
     box-shadow: 0 20px 40px rgba(0, 0, 0, .25);
 }
 
+.pan-controls {
+    position:absolute;
+    right : 290px;
+    top: 450px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    width: fit-content;
+}
+
+.pan-controls button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 32px;
+    padding: 0 10px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease;
+    user-select: none;
+}
+
+.pan-controls button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.pan-controls button:active {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0.95);
+}
+
+#left,
+#right {
+    font-size: 18px;
+    font-weight: bold;
+    min-width: 32px;
+}
+
 #template{
     overflow: hidden;
 }

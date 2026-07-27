@@ -197,6 +197,34 @@ zoomOutBtn.addEventListener("click", function () {
     applyTransform();
 });
 
+const leftBtn = document.getElementById("left");
+const rightBtn = document.getElementById("right");
+const topBtn = document.getElementById("top");
+const bottomBtn = document.getElementById("bottom");
+
+function pan(dx, dy) {
+    if (!selected) return;
+    x += dx;
+    y += dy;
+    profile.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+}
+
+leftBtn.addEventListener("click", () => {
+    pan(-5, 0);
+});
+
+rightBtn.addEventListener("click", () => {
+    pan(5, 0);
+});
+
+topBtn.addEventListener("click", () => {
+    pan(0, -5);
+});
+
+bottomBtn.addEventListener("click", () => {
+    pan(0, 5);
+});
+
 function pan(dx, dy) {
     if (!selected) {
         return;
