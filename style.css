@@ -273,6 +273,25 @@ body {
     font-size: 20px;
 }
 
+.error-msg {
+    position:absolute;
+    top:150px;
+    padding:5px;
+    color: #e53935;
+    font-size: 12px;
+    margin-top: 2px;
+    min-height: 14px;
+}
+#nameError{
+    position:absolute;
+    top:180px;
+    padding:5px;
+    color: #e53935;
+    font-size: 12px;
+    margin-top: 2px;
+    min-height: 14px;
+}
+
 .magnification{
     position: absolute;
     display: flex;

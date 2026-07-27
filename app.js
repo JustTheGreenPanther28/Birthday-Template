@@ -128,20 +128,58 @@ imageInput.addEventListener("change", function () {
     refreshTemplate();
 });
 
-nameInput.addEventListener("input", function () {
-    if (nameInput.value.length > 20) {
-        nameInput.value = nameInput.value.substring(0, 15) + "...";
+let nameError = document.getElementById("nameError");
+let ageError = document.getElementById("ageError");
+
+function validateName(value) {
+    if (value.length > 25) {
+        nameError.textContent = "Name cannot exceed 25 characters.";
+        return false;
     }
-    currentName = nameInput.value;
-    applyName();
+    nameError.textContent = "";
+    return true;
+}
+
+function validateAge(value) {
+    if (value.trim() === "") {
+        ageError.textContent = "Age cannot be empty.";
+        return false;
+    }
+    var num = Number(value);
+    if (!Number.isInteger(num)) {
+        ageError.textContent = "Age must be a whole number.";
+        return false;
+    }
+    if (num <= 0) {
+        ageError.textContent = "Age must be greater than 0.";
+        return false;
+    }
+    if (num > 120) {
+        ageError.textContent = "Please enter a realistic age (max 120).";
+        return false;
+    }
+    ageError.textContent = "";
+    return true;
+}
+
+nameInput.addEventListener("input", function () {
+    
+    if (validateName(nameInput.value)) {
+        currentName = nameInput.value;
+        applyName();
+    }
+    else{
+        nameInput.value = nameInput.value.slice(0, 25);
+    }
 });
 
 ageInput.addEventListener("input", function () {
-    if(ageInput.value>200){
-        return;
+    if (validateAge(ageInput.value)) {
+        currentAge = ageInput.value;
+        applyAge();
+    } else {
+        currentAge = "";
     }
-    currentAge = ageInput.value;
-    applyAge();
 });
 
 
