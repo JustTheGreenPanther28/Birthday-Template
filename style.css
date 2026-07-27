@@ -2,11 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    caret-color:orange;
+    caret-color: orange;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-::selection{
+::selection {
     background: #FFD700;
     color: darkblue;
 }
@@ -14,7 +14,7 @@
 body {
     display: flex;
     justify-content: flex-start;
-    align-items:center;
+    align-items: center;
     min-height: 100vh;
     background-image: url("image/background.png");
     background-size: cover;
@@ -24,7 +24,7 @@ body {
 
 
 .poster {
-    margin-left : 100px;
+    margin-left: 100px;
     margin-right: 100px;
     position: relative;
     width: 430px;
@@ -33,57 +33,61 @@ body {
     overflow: hidden;
 
     border: 5px solid #ff6b81;
-    
-    border-radius: 18px;
 
-    background-image: url("image/birthdayImg.png");
-    background-size: cover;
-    background-position: center;
+    border-radius: 18px;
 
     box-shadow: 0 20px 40px rgba(0, 0, 0, .25);
 }
 
 /* ===================== */
-/* TOP DECORATION */
+/* PURE CSS BACKGROUND */
 /* ===================== */
 
-.top-decoration {
-
+#posterBg {
     position: absolute;
-    width: 100%;
-    height: 150px;
     top: 0;
     left: 0;
-
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(135deg, #ffd3e0 0%, #fff0d9 50%, #d3f0ff 100%);
+    overflow: hidden;
 }
 
-#move{
-    display: flex;
-    gap:455px;
+.balloon {
     position: absolute;
-    left : 45px;
-    top: 300px;
+    width: 60px;
+    height: 75px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    opacity: 0.85;
 }
 
-#move button{
-    font-size: 50px;
-    color:whitesmoke;
-    background-color: #174d94;
-    padding:5px;
+.balloon::after {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    width: 1px;
+    height: 40px;
+    background: #999;
 }
 
-#move button:hover{
-    color:wheat;
-    background-color: #0b2445;
+.b1 { background: #ff6b81; top: 30px; left: 25px; }
+.b2 { background: #4285F4; top: 15px; right: 35px; width: 50px; height: 65px; }
+.b3 { background: #FBBC05; top: 560px; left: 30px; width: 48px; height: 62px; }
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
 }
 
-#prev{
-    border-radius: 50% 10% 10% 50%;
-}
-
-#next{
-    border-radius: 10% 50% 50% 10%;
-}
+.c1 { background: #ff6b81; top: 150px; left: 60px; transform: rotate(20deg); }
+.c2 { background: #4285F4; top: 250px; right: 80px; border-radius: 50%; }
+.c3 { background: #FBBC05; top: 350px; left: 100px; transform: rotate(45deg); }
+.c4 { background: #34A853; top: 420px; right: 50px; border-radius: 50%; }
+.c5 { background: #ff6b81; top: 180px; right: 120px; border-radius: 50%; }
+.c6 { background: #4285F4; top: 480px; left: 40px; transform: rotate(30deg); }
 
 
 /* =================== */
@@ -134,7 +138,7 @@ body {
 
     border-radius: 50%;
 
-    object-fit:contain;
+    object-fit: contain;
 
     transform: scale(1.1);
 
@@ -184,8 +188,8 @@ body {
     font-size: 20px;
 }
 
-#name{
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+#name {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
 .content p {
@@ -199,28 +203,29 @@ body {
     line-height: 22px;
 
 }
-.buttons{
+
+.buttons {
     position: absolute;
     width: 180px;
     height: 180px;
-    right :300px;
+    right: 300px;
 }
 
-.buttons button{
+.buttons button {
     position: absolute;
     width: 70px;
     height: 70px;
 
     border: none;
     border-radius: 50%;
-    background: rgb(69,147,13);
-    color:bisque;
+    background: rgb(69, 147, 13);
+    color: bisque;
 
     font-size: 36px;
     cursor: pointer;
 }
 
-.buttons button:hover{
+.buttons button:hover {
     text-shadow: 3px 2px black;
     box-shadow: 2px 3px black;
     background: rgba(69, 147, 13, 0.527);
@@ -228,102 +233,104 @@ body {
 }
 
 /* Up */
-#top{
+#top {
     top: 0;
     left: 55px;
 }
 
 /* Down */
-#bottom{
+#bottom {
     bottom: 0;
     left: 55px;
 }
 
 /* Left */
-#left{
+#left {
     top: 55px;
     left: 0;
 }
 
 /* Right */
-#right{
+#right {
     top: 55px;
     right: 0;
 }
-.upload{
+
+.upload {
     position: absolute;
-    top : 20px;
-    right : 0px;
+    top: 20px;
+    right: 0px;
 
 }
 
-#title{
-    color:rgba(172, 11, 11, 0.752);
+#title {
+    color: rgba(172, 11, 11, 0.752);
     margin-top: 5px;
     font-size: 15px;
-    font-family:cursive;
+    font-family: cursive;
     font-weight: 700;
 
 }
 
-.upload input{
+.upload input {
     display: inline-block;
-    cursor:pointer;
-    font-weight:bold;
+    cursor: pointer;
+    font-weight: bold;
     font-size: 20px;
 }
-.magnification{
+
+.magnification {
     position: absolute;
     display: flex;
     flex-direction: row-reverse;
-    right:350px;
-    top:480px;
+    right: 350px;
+    top: 480px;
 }
 
-.magnification button{
-    background:none;
+.magnification button {
+    background: none;
     border: none;
-    padding:10px;
+    padding: 10px;
     cursor: pointer;
 }
 
-.download{
+.download {
     position: absolute;
-    right:50px;
-    bottom:20px;
+    right: 50px;
+    bottom: 20px;
 }
 
-.download button{
+.download button {
     border: none;
-    background:none;
+    background: none;
     cursor: pointer;
 }
 
-#fitfill{
+#fitfill {
     display: block;
     position: absolute;
-    right:325px;
-    top:180px;
+    right: 325px;
+    top: 180px;
 }
 
-#fitfill button{
-    background:none;
+#fitfill button {
+    background: none;
     border: none;
     cursor: pointer;
     margin-right: 15px;
 }
 
-#nameinput{
+#nameinput {
     position: absolute;
-    top:20px;
+    top: 20px;
     border-radius: 20px;
-    width:300px;
+    width: 300px;
     padding: 15px;
-    border:3px solid pink;
+    border: 3px solid pink;
     font-family: cursive;
 }
 
-#nameinput:focus{
-    border:2px solid rgba(0, 255, 98, 0.712);
-    outline:none;
+#nameinput:focus {
+    border: 2px solid rgba(0, 255, 98, 0.712);
+    outline: none;
 }

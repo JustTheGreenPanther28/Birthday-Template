@@ -1,6 +1,5 @@
 const imageInput = document.getElementById("imageInput");
 const profile = document.getElementById("profileImage");
-let images = ["image/birthdayImg.png","image/birthdayImg1.png","image/birthdayImg2.png","image/birthdayImg3.png","image/birthdayImg4.png","image/birthdayImg5.png"];
 
 let selected = false;
 let x = 0, y = 0;
@@ -11,7 +10,7 @@ imageInput.addEventListener("change", function () {
     scale = 1.1;
     x = 0;
     y = 0;
-    pan(x,y);
+    pan(0, 0);
 
     document.getElementById('title').textContent = "";
     const selectedFile = this.files[0];
@@ -70,53 +69,12 @@ zoomOut.addEventListener("click", () => {
     profile.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
 });
 
-const leftBtn = document.getElementById("left");
-const rightBtn = document.getElementById("right");
-const topBtn = document.getElementById("top");
-const bottomBtn = document.getElementById("bottom");
-
 function pan(dx, dy) {
     if (!selected) return;
     x += dx;
     y += dy;
     profile.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
 }
-
-leftBtn.addEventListener("click", () => {
-    pan(-5, 0);
-});
-
-rightBtn.addEventListener("click", () => {
-    pan(5, 0);
-});
-
-topBtn.addEventListener("click",()=>{
-    pan(0,-5);
-});
-
-bottomBtn.addEventListener("click",()=>{
-    pan(0,5);
-});
-
-let i = 0;
-
-const previous = document.getElementById("prev");
-const next = document.getElementById("next");
-
-previous.addEventListener("click", () => {
-    i = (i - 1 + images.length) % images.length;
-    updatePoster();
-});
-
-next.addEventListener("click", () => {
-    i = (i + 1) % images.length;
-    updatePoster();
-});
-
-function updatePoster() {
-    poster.style.backgroundImage = `url("${images[i]}")`;
-}
-
 
 const downloadBtn = document.getElementById("downloadBtn");
 const poster = document.querySelector(".poster");
