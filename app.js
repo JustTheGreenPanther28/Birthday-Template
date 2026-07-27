@@ -129,8 +129,8 @@ imageInput.addEventListener("change", function () {
 });
 
 nameInput.addEventListener("input", function () {
-    if (nameInput.value.length > 25) {
-        nameInput.value = nameInput.value.substring(0, 25) + "...";
+    if (nameInput.value.length > 20) {
+        nameInput.value = nameInput.value.substring(0, 15) + "...";
     }
     currentName = nameInput.value;
     applyName();
