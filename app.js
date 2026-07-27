@@ -202,13 +202,6 @@ const rightBtn = document.getElementById("right");
 const topBtn = document.getElementById("top");
 const bottomBtn = document.getElementById("bottom");
 
-function pan(dx, dy) {
-    if (!selected) return;
-    x += dx;
-    y += dy;
-    profile.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
-}
-
 leftBtn.addEventListener("click", () => {
     pan(-5, 0);
 });
