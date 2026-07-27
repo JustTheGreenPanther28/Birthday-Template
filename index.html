@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Poster</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/dom-to-image-more/dist/dom-to-image-more.min.js"></script>
+<script defer src="app.js"></script>
+
+
+<body>
+
+
+  <div class="poster">
+    <iframe  id="template" src="bday2.html" width="430px" height="650px" style="border:none;"></iframe>
+  </div>
+
+  <div class="download">
+    <div id="downloadBtn">
+      <button><img src="image/download.png" width="50"></button>
+    </div>
+  </div>
+
+  <div id="search">
+    <input type="search" id="nameinput" placeholder="Enter your name (e.g. Ankit Kumar)">
+    <input type="number" id="ageinput" placeholder="Enter age">
+  </div>
+
+  <div>
+    <select id="options">
+      <option value="">
+        --------NONE--------
+      </option>
+      <option value="bday2.html">
+        Template 1
+      </option>
+      <option value="bday3.html">
+        Template 2
+      </option>
+      <option value="bday4.html">
+        Template 3
+      </option>
+      <option value="bday5.html">
+        Template 4
+      </option>
+
+    </select>
+  </div>
+
+  <div id="fitfill">
+    <button id="fit"><img src="image/fit.png" width="40"></button>
+    <button id="fill"><img src="image/fill.jpg" width="40"></button>
+  </div>
+
+  <div class="upload">
+    <input type="file" id="imageInput" accept="image/*">
+    <div id="title">(UPLOAD IMAGE)</div>
+  </div>
+
+  <div class="magnification">
+    <button id="zoomIn"><img src="image/zoom-in-button.png" width="25"></button>
+    <button id="zoomOut"><img src="image/zoom-out.png" width="25"></button>
+  </div>
+
+  <!-- <div id="move">
+        <button id="prev"><</button>
+        <button id="next">></button>
+    </div> -->
+</body>
+
+</html>
